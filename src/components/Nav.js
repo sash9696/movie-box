@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import './Nav.css';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { useNavigate } from 'react-router';
 
 function Nav() {
 
+    const navigate = useNavigate();
     const [show, handleShow] = useState(false);
 
     const transitionNavBar = () => {
@@ -23,8 +25,8 @@ function Nav() {
 
     return (
         <div className={`nav ${show && 'nav_black'}`}>
-            <img className='nav_image' src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0c9f9c15807693.562972078781b.png' alt='' />
-            <p className='nav_logo'><AccountCircleIcon fontSize='medium' /></p>
+            <img onClick={() =>navigate('/')} className='nav_image' src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0c9f9c15807693.562972078781b.png' alt='' />
+            <p onClick={() => navigate('/profile')} className='nav_logo'><AccountCircleIcon fontSize='medium' /></p>
         </div>
     )
 }

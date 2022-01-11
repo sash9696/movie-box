@@ -16,6 +16,7 @@
     top: 5px;
     height: 40px;
     object-fit: contain;
+    cursor: pointer;
 
 }
 .nav_logo{
@@ -23,5 +24,6 @@
     right: 20px;
     top: 10px;
     color: white;
+    cursor: pointer;
     
 }
