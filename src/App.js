@@ -27,6 +27,7 @@ function App() {
          dispatch(logout());
        }
     })
+    return gettingIn;
   }, [dispatch])
 
   return (
@@ -37,7 +38,6 @@ function App() {
           <Routes>
             <Route exact path="profile" element={<ProfileScreen />} />
             <Route exact path="/" element={<HomeScreen/>} />
-            
           </Routes>
           </BrowserRouter>
 

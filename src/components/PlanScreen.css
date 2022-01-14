@@ -1,0 +1,30 @@
+.planScreen{
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+/* .planScreen_info > h5{
+    color: white;
+} */
+.planScreen_plans{
+    margin: 20px 0;
+    display: flex;
+    flex: 1;
+    width: 400px;
+    justify-content: space-between;
+    opacity: 0.8;
+
+}
+.planScreen_plans:hover{
+    opacity: 1;
+}
+.planScreen_plans > button{
+    padding: 10px 30px;
+    color: white;
+    font-weight: bolder;
+    background-color: red;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
