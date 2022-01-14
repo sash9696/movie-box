@@ -76,9 +76,7 @@ function PlanScreen() {
         });
         
     }, [])
-    console.log(products);
-    console.log(subscription);
-
+   
     return (
         <div className='planScreen'>
            {Object.entries(products).map(([productId, productData]) => {
