@@ -2,20 +2,15 @@ import React, {useEffect, useState} from 'react';
 import axios from '../requests/axios';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
-
 import './Row.css';
 
-
-function Row({title, fetchUrl, isLargeRow = false}) {
+function Row({title, fetchUrl, isLargeRow = false, search, setSearch}) {
     const [movie, setMovie] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState("");
     const base_url = "https://image.tmdb.org/t/p/original/";
      
-    
     useEffect(() => {
             fetchData();
-            
-       
     }, [])
     
     async function fetchData(){
@@ -51,7 +46,8 @@ function Row({title, fetchUrl, isLargeRow = false}) {
         <div className='row'>
             <h1>{title}</h1>
             <div className="row_posters">
-               {movie.map((movie) => (
+                {
+                movie.filter(name => name?.title?.includes(search) || name?.name?.includes(search) || name?.original_name?.includes(search) || name?.overview?.includes(search)).map((movie) => (
                    movie?.poster_path && movie?.backdrop_path ? (
                        <img className={`row_poster ${isLargeRow && 'rowPoster_large'}`} 
                         key={movie.id}
@@ -61,12 +57,12 @@ function Row({title, fetchUrl, isLargeRow = false}) {
                        
                        />
                    ) : ''
-               ) )} 
+               ))}
             </div>
             {trailerUrl && <YouTube
-                    videoId={trailerUrl}                  // defaults -> null
-                    opts={opts}   
-                    />}
+                videoId={trailerUrl}                  // defaults -> null
+                opts={opts}   
+            />}
         </div>
     )
 }

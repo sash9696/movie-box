@@ -83,7 +83,6 @@ function PlanScreen() {
                 // add logic to check users subscription active
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role)
                
-                
                 return (
                     <div className='planScreen_plans'>
                         <div className="planScreen_info">

@@ -5,11 +5,9 @@ import axios from '../requests/axios';
 
 function Banner() {
     const [movie, setMovie] = useState([]);
-     
+    
     useEffect(() => {
-            fetchData();
-            
-       
+        fetchData();
     }, [])
 
     async function fetchData(){
@@ -27,7 +25,7 @@ function Banner() {
             backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
-        }}>
+        }}> 
             <div className="banner_contents">
                 <h1>{movie?.original_name}</h1>
                 <div className="banner_buttons">

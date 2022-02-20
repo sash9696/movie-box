@@ -1,22 +1,27 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import './HomeScreen.css';
 import Nav from './Nav';
 import Banner from './Banner';
 import Row from './Row';
-import requests from '../requests/Requests';
+import { rowData } from './rowData';
 
 function HomeScreen() {
+
+    const [search, setSearch] = useState('');
+
     return (
         <div className='home_screen'>
-            <Nav/>
-            <Banner/>
-            <Row title="MOVIE BOX HITS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
-            <Row title="Action Movies" fetchUrl={requests.fetchActionMovies}  />
-            <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies}  />
-            <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}  />
-            <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies}  />
-            <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries}/>
-
+            <Nav search={search} setSearch={setSearch} />
+            <Banner />
+            {rowData.map(val => (
+                 <Row 
+                    title={val.title} 
+                    fetchUrl={val.fetchUrl} 
+                    isLargeRow={val.isLargeRow ? "true" : false}
+                    search={search}
+                    setSearch={setSearch}
+                />
+            ))}
         </div>
     )
 }

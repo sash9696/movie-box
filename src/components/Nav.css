@@ -1,29 +1,37 @@
 .nav{
     display: flex;
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1;
     background-color: rgba(255,255,255,0.5);
+    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav_black{
     background-color: black;
     height: 50px;
 }
+.nav_right {
+    display: flex;
+    align-items: center;
+}
+.nav_input {
+    height: 25px;
+    width: 300px;
+    margin: 0 10px;
+}
 .nav_image{
-    position: fixed;
-    left: 10px;
+    /* left: 10px; */
     top: 5px;
     height: 40px;
     object-fit: contain;
     cursor: pointer;
-
 }
 .nav_logo{
-    position: fixed;
-    right: 20px;
     top: 10px;
     color: white;
     cursor: pointer;
-    
+       
 }
