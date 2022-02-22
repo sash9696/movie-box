@@ -47,7 +47,7 @@ function Row({title, fetchUrl, isLargeRow = false, search, setSearch}) {
             <h1>{title}</h1>
             <div className="row_posters">
                 {
-                movie.filter(name => name?.title?.includes(search) || name?.name?.includes(search) || name?.original_name?.includes(search) || name?.overview?.includes(search)).map((movie) => (
+                movie.filter(name => name?.title?.toLowerCase().includes(search) || name?.name?.toLowerCase().includes(search) || name?.original_name?.toLowerCase().includes(search) || name?.overview?.toLowerCase().includes(search)).map((movie) => (
                    movie?.poster_path && movie?.backdrop_path ? (
                        <img className={`row_poster ${isLargeRow && 'rowPoster_large'}`} 
                         key={movie.id}
