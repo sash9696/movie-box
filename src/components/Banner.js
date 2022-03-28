@@ -3,6 +3,14 @@ import './Banner.css';
 import requests from '../requests/Requests';
 import axios from '../requests/axios';
 
+const scrollDown = () => {
+    window.scroll(
+        0, 
+        300
+      );
+
+}
+
 function Banner() {
     const [movie, setMovie] = useState([]);
     
@@ -29,8 +37,8 @@ function Banner() {
             <div className="banner_contents">
                 <h1>{movie?.original_name}</h1>
                 <div className="banner_buttons">
-                    <button >Play</button>
-                    <button>My List</button>
+                    <button onClick={scrollDown}>Play</button>
+                    <button onClick={scrollDown} >My List</button>
                 </div>
                 <h3>{truncate(movie?.overview,80)}</h3>
             </div>
